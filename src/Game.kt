@@ -35,19 +35,16 @@ private fun auraColor(isBlessed: Boolean,
 }
 
 private fun formatHealthStatus(healthPoints: Int,
-                               isBlessed: Boolean): String {
-    val healthStatus = when (healthPoints) {
-        100 -> "is in excellent condition!"
-        in 90..99 -> "has few scratches."
-        in 75..89 -> if (isBlessed) {
-            "has some minor wounds but is healing quite quickly!"
-        } else {
-            "has some minor wounds."
-        }
-        in 15..74 -> "looks pretty hurt."
-        else -> "is in awful condition!"
+                               isBlessed: Boolean) = when (healthPoints) {
+    100 -> "is in excellent condition!"
+    in 90..99 -> "has few scratches."
+    in 75..89 -> if (isBlessed) {
+        "has some minor wounds but is healing quite quickly!"
+    } else {
+        "has some minor wounds."
     }
-    return healthStatus
+    in 15..74 -> "looks pretty hurt."
+    else -> "is in awful condition!"
 }
 
 private fun printTestMessage() {
@@ -59,6 +56,5 @@ private fun printTestMessage() {
     println("I'm $name and my health ${formatHealthStatus(healthPoints, true)}")
 }
 
-private fun castFireball(numFireballs: Int = 2) {
+private fun castFireball(numFireballs: Int = 2) =
     println("A glass of Fireball springs into existence. (x$numFireballs)")
-}
