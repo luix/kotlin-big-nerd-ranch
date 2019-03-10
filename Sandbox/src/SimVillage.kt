@@ -1,8 +1,9 @@
 fun main(args: Array<String>) {
-    val greetingFunction: (String) -> String = {
+    val greetingFunction: (String, Int) -> String = { playerName, numBuildings ->
         val currentYear = 2019
-        "Welcome to SimVillage, Major $it! (copyright $currentYear)"
+        println("Adding $numBuildings houses")
+        "Welcome to SimVillage, Major $playerName! (copyright $currentYear)"
     }
 
-    println(greetingFunction("Yomero"))
+    println(greetingFunction("Yomero", 3))
 }
