@@ -1,10 +1,13 @@
 fun main() {
     runSimulation()
+    runSimulation()
+    runSimulation()
 }
 
 fun runSimulation() {
     val greetingFunction = configureGreetingFunction()
     println(greetingFunction("Yomero"))
+    println(greetingFunction("Obama"))
 }
 
 fun configureGreetingFunction() : (String) -> String {
