@@ -14,3 +14,6 @@ fun main(args: Array<String>) {
 fun proficiencyCheck(swordJuggling: Int?) {
     swordJuggling ?: throw IllegalStateException("Player cannot juggle swords")
 }
+
+class UnskilledSwordJugglerException() :
+        IllegalStateException("Player cannot juggle swords")
