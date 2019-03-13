@@ -5,8 +5,12 @@ fun main(args: Array<String>) {
         swordsJuggling = 2
     }
 
-    proficiencyCheck(swordsJuggling)
-    swordsJuggling = swordsJuggling!!.plus(1)
+    try {
+        proficiencyCheck(swordsJuggling)
+        swordsJuggling = swordsJuggling!!.plus(1)
+    } catch (e: UnskilledSwordJugglerException) { // e: Exception
+        println(e)
+    }
 
     println("You juggle $swordsJuggling swords!")
 }
