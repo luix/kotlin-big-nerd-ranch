@@ -5,7 +5,12 @@ fun main(args: Array<String>) {
         swordsJuggling = 2
     }
 
+    proficiencyCheck(swordsJuggling)
     swordsJuggling = swordsJuggling!!.plus(1)
 
     println("You juggle $swordsJuggling swords!")
+}
+
+fun proficiencyCheck(swordJuggling: Int?) {
+    swordJuggling ?: throw IllegalStateException("Player cannot juggle swords")
 }
