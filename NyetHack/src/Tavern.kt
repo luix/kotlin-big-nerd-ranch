@@ -3,6 +3,9 @@ const val TAVERN_NAME = "Taernyl's Folly"
 fun main(args: Array<String>) {
     //placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("elixir,Shirley's Temple,4.12")
+
+    val omSymbol = '\u0950'
+    println(omSymbol)
 }
 
 private fun placeOrder(menuData: String) {
