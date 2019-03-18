@@ -2,11 +2,33 @@ import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
 
+// the cask holds 5 gallons of Dragon's Breath, and 1 pint = 0.125 gallons
+var remainingPintsOfDragonsBreath = 5.0 / 0.125
+
 var playerGold = 10
 var playerSilver = 10
 
 fun main(args: Array<String>) {
     placeOrder("shandy,Dragon's Breath,5.91")
+
+    println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
+    remainingPintsChallenge()
+}
+
+fun remainingPintsChallenge() {
+    for (i in 1..12) {
+        sellOneDragonsBreathPint()
+    }
+    print("Remaining pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
+}
+
+fun sellOneDragonsBreathPint() {
+    // dragonsBreathQuantity -= 0.125   // 1 pint = 0.125 gallons
+    --remainingPintsOfDragonsBreath
+}
+
+fun trackQuantityOfDragonsBreath() {
+
 }
 
 fun performPurchase(price: Double) {
