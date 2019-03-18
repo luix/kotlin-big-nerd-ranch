@@ -37,6 +37,10 @@ fun performPurchase(price: Double) {
     println("Total purse: $totalPurse")
     println("Purchasing item for $price")
 
+    if (totalPurse < price) {
+        println("Customer has not enough silver nor gold to buy a delicious drink")
+        return
+    }
     val remainingBalance = totalPurse - price
     println("Remaining balance: ${"%.2f".format(remainingBalance)}")
 
@@ -60,7 +64,9 @@ private fun placeOrder(menuData: String) {
     val message = "Madrigal buys a $name ($type) for \$$price pesos."
     println(message)
 
-    performPurchase(price.toDouble())
+    for (i in 1..4) {
+        performPurchase(price.toDouble())
+    }
 
     val phrase = if (name == "Dragon's Breath") {
         "Madrigal exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
