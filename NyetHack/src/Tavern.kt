@@ -30,8 +30,10 @@ fun sellOneDragonsBreathPint() {
     --remainingPintsOfDragonsBreath
 }
 
-fun trackQuantityOfDragonsBreath() {
-
+fun formatGreeting(vipGuest: String?): String {
+    return vipGuest?.let {
+        "Welcome, $it. Please, go straight back - your table is ready."
+    } ?: "Welcome to the tavern. You'll be seated soon."
 }
 
 fun performPurchase(price: Double) {
