@@ -10,12 +10,15 @@ var remainingPintsOfDragonsBreath = 5.0 / 0.125
 var playerGold = 10
 var playerSilver = 10
 var playerDragonCoin = 5.0   // 1 dragoncoin = 1.43 gold
+val patronList: List<String> = listOf("Eli", "Mordoc", "Sophie")
 
 fun main(args: Array<String>) {
     placeOrder("shandy,Dragon's Breath,5.91")
 
     println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
     remainingPintsChallenge()
+
+    println(patronList)
 }
 
 fun remainingPintsChallenge() {
