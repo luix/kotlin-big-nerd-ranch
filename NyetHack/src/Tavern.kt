@@ -13,12 +13,13 @@ var playerDragonCoin = 5.0   // 1 dragoncoin = 1.43 gold
 val patronList = listOf("Eli", "Mordoc", "Sophie")
 
 fun main(args: Array<String>) {
+    if (patronList.contains("Eli")) {
+        println("The tavern master says: Eli's in the back playing cards.")
+    } else {
+        println("The tavern master says: Eli isn't here.")
+    }
+
     placeOrder("shandy,Dragon's Breath,5.91")
-
-    println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
-    remainingPintsChallenge()
-
-    println(patronList.getOrElse(4) { "Unknown Patron" })
 }
 
 fun remainingPintsChallenge() {
