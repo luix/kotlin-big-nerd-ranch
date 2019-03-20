@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
     remainingPintsChallenge()
 
-    println(patronList[0])
+    println(patronList[4])
 }
 
 fun remainingPintsChallenge() {
