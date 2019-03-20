@@ -18,14 +18,14 @@ fun main(args: Array<String>) {
     println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
     remainingPintsChallenge()
 
-    println(patronList[4])
+    println(patronList.getOrElse(4) { "Unknown Patron" })
 }
 
 fun remainingPintsChallenge() {
     for (i in 1..12) {
         sellOneDragonsBreathPint()
     }
-    print("Remaining pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
+    println("Remaining pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
 }
 
 fun sellOneDragonsBreathPint() {
