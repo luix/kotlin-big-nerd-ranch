@@ -27,8 +27,8 @@ fun main(args: Array<String>) {
 
     placeOrder("shandy,Dragon's Breath,5.91")
 
-    patronList.forEach { patron ->
-        println("Good evening, $patron")
+    patronList.forEachIndexed { index, patron ->
+        println("Good evening, $patron - you're #${index + 1} in line.")
     }
 }
 
