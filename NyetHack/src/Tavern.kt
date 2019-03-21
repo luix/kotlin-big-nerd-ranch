@@ -1,3 +1,4 @@
+import java.io.File
 import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
@@ -11,6 +12,9 @@ var playerGold = 10
 var playerSilver = 10
 var playerDragonCoin = 5.0   // 1 dragoncoin = 1.43 gold
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
+val menuList = File("data/tavern-menu-items.txt")
+                    .readText()
+        .split("\n")
 
 fun main(args: Array<String>) {
     if (patronList.contains("Eli")) {
