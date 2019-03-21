@@ -33,6 +33,10 @@ fun main(args: Array<String>) {
         println("Good evening, $patron - you're #${index + 1} in line.")
         placeOrder(patron, "shandy,Dragon's Breath,5.91")
     }
+
+    menuList.forEachIndexed { index, data ->
+        println("$index : $data")
+    }
 }
 
 fun remainingPintsChallenge() {
