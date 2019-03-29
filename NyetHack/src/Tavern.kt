@@ -154,16 +154,20 @@ fun printFormattedTavernMenu(menuList: List<String>) {
     println()
     println("*** Welcome to Taernyl's Folly ***")
     println()
+
+    var menuGroups = readGroupsFromMenuList(menuList)
+
     menuList.forEach {
-        val (_, name, price) = it.split(',')
+        val (type, name, price) = it.split(',')
         val dots = menuDotsPerName(name.length, price.length)
+        println("${formatGroupElement(type)}")
         println("${capitalizeMenuItem(name)}$dots$price")
     }
 }
 
 fun menuDotsPerName(nameLenght: Int, priceLength: Int, maxLength: Int = 33): String {
     val max = maxLength - nameLenght - priceLength
-    var sb = StringBuffer().append("")
+    val sb = StringBuffer().append("")
     (0..max).forEach {
       sb.append('.')
     }
@@ -171,7 +175,7 @@ fun menuDotsPerName(nameLenght: Int, priceLength: Int, maxLength: Int = 33): Str
 }
 
 fun capitalizeMenuItem(item: String): String {
-    var sb = StringBuffer()
+    val sb = StringBuffer()
     item.split(' ').forEach {
         if (it.length > 2) {
             sb.append(it.capitalize())
@@ -182,4 +186,23 @@ fun capitalizeMenuItem(item: String): String {
     }
     sb.deleteCharAt(sb.length - 1)
     return sb.toString()
+}
+
+fun formatGroupElement(type: String, maxLength: Int = 33): String {
+    val sb = StringBuffer()
+    val length = maxLength / 2 - type.length / 2 - 2
+    (0..length).forEach {
+        sb.append(' ')
+    }
+    sb.append("~[$type]~")
+    return sb.toString()
+}
+
+fun readGroupsFromMenuList(menuList: List<String>): Set<String> {
+    val groups = mutableSetOf<String>()
+    menuList.forEach {
+        var (group,_,_) = it.split(',')
+        groups.add(group)
+    }
+    return groups
 }
