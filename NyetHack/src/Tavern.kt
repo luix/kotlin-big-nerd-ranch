@@ -16,6 +16,8 @@ fun main(args: Array<String>) {
 
     println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
     remainingPintsChallenge()
+
+    runExample()
 }
 
 fun remainingPintsChallenge() {
@@ -63,6 +65,23 @@ fun displayBalance() {
     println("Dragoncoin balance: $playerDragonCoin")
 }
 
+fun nameIsLong(name: String) = name.length >= 20
+
+fun playerCreateMessage(nameTooLong: Boolean): String {
+    return if (nameTooLong) {
+        "Name is too long. Please choose another name."
+    } else {
+        "Welcome, adventurer"
+    }
+}
+
+private fun runExample() {
+    "Polarcubis, Supreme Master of NyetHack"
+        .run(::nameIsLong)
+        .run(::playerCreateMessage)
+        .run(::println)
+}
+
 private fun placeOrder(menuData: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
     val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
@@ -95,3 +114,4 @@ private fun toDragonSpeak(phrase: String) =
             else -> it.value
         }
     }
+
