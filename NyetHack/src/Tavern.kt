@@ -1,3 +1,4 @@
+import java.io.File
 import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
@@ -10,21 +11,44 @@ var remainingPintsOfDragonsBreath = 5.0 / 0.125
 var playerGold = 10
 var playerSilver = 10
 var playerDragonCoin = 5.0   // 1 dragoncoin = 1.43 gold
+val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
+val menuList = File("data/tavern-menu-items.txt")
+                    .readText()
+        .split("\n")
 
 fun main(args: Array<String>) {
-    placeOrder("shandy,Dragon's Breath,5.91")
+    if (patronList.contains("Eli")) {
+        println("The tavern master says: Eli's in the back playing cards.")
+    } else {
+        println("The tavern master says: Eli isn't here.")
+    }
+
+    if (patronList.containsAll(listOf("Sophie", "Mordoc"))) {
+        println("The tavern master says: Yea, they're seated by the stew kettle.")
+    } else {
+        println("The tavern master says: Nay, they departed hours ago.")
+    }
+
+    patronList.forEachIndexed { index, patron ->
+        println("Good evening, $patron - you're #${index + 1} in line.")
+        placeOrder(patron, menuList.shuffled().first())
+    }
 
     println("Initial pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
     remainingPintsChallenge()
 
     runExample()
+
+    menuList.forEachIndexed { index, data ->
+        println("$index : $data")
+    }
 }
 
 fun remainingPintsChallenge() {
     for (i in 1..12) {
         sellOneDragonsBreathPint()
     }
-    print("Remaining pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
+    println("Remaining pints of Dragon's Breath: $remainingPintsOfDragonsBreath")
 }
 
 fun sellOneDragonsBreathPint() {
@@ -82,13 +106,13 @@ private fun runExample() {
         .run(::println)
 }
 
-private fun placeOrder(menuData: String) {
+private fun placeOrder(patronName: String, menuData: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
     val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
-    println("Madrigal speaks with $tavernMaster about their order.")
+    println("$patronName speaks with $tavernMaster about their order.")
 
     val (type, name, price) = menuData.split(',')
-    val message = "Madrigal buys a $name ($type) for \$$price pesos."
+    val message = "$patronName buys a $name ($type) for \$$price pesos."
     println(message)
 
     for (i in 1..4) {
@@ -96,9 +120,9 @@ private fun placeOrder(menuData: String) {
     }
 
     val phrase = if (name == "Dragon's Breath") {
-        "Madrigal exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
+        "$patronName exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
     } else {
-        "Madrigal exclaims: Thanks for the $name"
+        "$patronName exclaims: Thanks for the $name"
     }
     println(phrase)
 }
