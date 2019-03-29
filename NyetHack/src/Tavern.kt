@@ -1,3 +1,4 @@
+import sun.security.util.Length
 import java.io.File
 import kotlin.math.roundToInt
 
@@ -50,6 +51,8 @@ fun main(args: Array<String>) {
             menuList.shuffled().first())
         orderCount++
     }
+
+    printFormattedTavernMenu(menuList)
 }
 
 fun remainingPintsChallenge() {
@@ -147,3 +150,36 @@ private fun toDragonSpeak(phrase: String) =
         }
     }
 
+fun printFormattedTavernMenu(menuList: List<String>) {
+    println()
+    println("*** Welcome to Taernyl's Folly ***")
+    println()
+    menuList.forEach {
+        val (_, name, price) = it.split(',')
+        val dots = menuDotsPerName(name.length, price.length)
+        println("${capitalizeMenuItem(name)}$dots$price")
+    }
+}
+
+fun menuDotsPerName(nameLenght: Int, priceLength: Int, maxLength: Int = 33): String {
+    val max = maxLength - nameLenght - priceLength
+    var sb = StringBuffer().append("")
+    (0..max).forEach {
+      sb.append('.')
+    }
+    return sb.toString()
+}
+
+fun capitalizeMenuItem(item: String): String {
+    var sb = StringBuffer()
+    item.split(' ').forEach {
+        if (it.length > 2) {
+            sb.append(it.capitalize())
+        } else {
+            sb.append(it)
+        }
+        sb.append(' ')
+    }
+    sb.deleteCharAt(sb.length - 1)
+    return sb.toString()
+}
