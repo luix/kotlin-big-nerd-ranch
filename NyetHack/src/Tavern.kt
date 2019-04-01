@@ -45,8 +45,9 @@ fun main(args: Array<String>) {
 
     var orderCount = 0
     while (orderCount < 10) {
-        placeOrder(uniquePatrons.shuffled().first(),
-            menuList.shuffled().first())
+        val patron = uniquePatrons.shuffled().first()
+        val menuData = menuList.shuffled().first()
+        placeOrder(patron, menuData)
         orderCount++
     }
 
@@ -97,11 +98,9 @@ private fun placeOrder(patronName: String, menuData: String) {
     val message = "$patronName buys a $name ($type) for \$$price pesos."
     println(message)
 
-    for (i in 1..4) {
-        performPurchase(price.toDouble(), patronName)
-    }
-
-    val phrase = if (name == "Dragon's Breath") {
+    val phrase = if (!performPurchase(price.toDouble(), patronName)) {
+        "$patronName exclaims: the Tavern Bouncer is a !@#$!"
+    } else if (name == "Dragon's Breath") {
         "$patronName exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
     } else {
         "$patronName exclaims: Thanks for the $name"
@@ -109,9 +108,22 @@ private fun placeOrder(patronName: String, menuData: String) {
     println(phrase)
 }
 
-fun performPurchase(price: Double, patronName: String) {
-    val totalPurse = patronGold.getValue(patronName)
-    patronGold[patronName] = totalPurse - price
+fun performPurchase(price: Double, patronName: String): Boolean {
+    try {
+        val totalPurse = patronGold.getValue(patronName)
+        if (price > totalPurse) {
+            // Challenge: Tavern Bouncer
+            println("$patronName is bounced from tavern since not enough founds")
+            uniquePatrons.remove(patronName)
+            patronGold.remove(patronName)
+            return false
+        } else {
+            patronGold[patronName] = totalPurse - price
+            return true
+        }
+    } catch (ex: NoSuchElementException) {
+        return false
+    }
 }
 
 private fun displayPatronBalances() {
