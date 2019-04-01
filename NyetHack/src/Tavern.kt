@@ -1,17 +1,10 @@
-import sun.security.util.Length
 import java.io.File
-import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
-
-const val DRAGON_COIN_VALUATION = 1.43
 
 // the cask holds 5 gallons of Dragon's Breath, and 1 pint = 0.125 gallons
 var remainingPintsOfDragonsBreath = 5.0 / 0.125
 
-var playerGold = 10
-var playerSilver = 10
-var playerDragonCoin = 5.0   // 1 dragoncoin = 1.43 gold
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 val lastName = listOf("Ironfoot", "Fernsworth", "Baggins")
 val uniquePatrons = mutableSetOf<String>()
@@ -48,6 +41,8 @@ fun main(args: Array<String>) {
         patronGold[it] = 6.0
     }
 
+    println(patronGold)
+
     var orderCount = 0
     while (orderCount < 10) {
         placeOrder(uniquePatrons.shuffled().first(),
@@ -74,33 +69,6 @@ fun formatGreeting(vipGuest: String?): String {
     return vipGuest?.let {
         "Welcome, $it. Please, go straight back - your table is ready."
     } ?: "Welcome to the tavern. You'll be seated soon."
-}
-
-fun performPurchase(price: Double) {
-    displayBalance()
-    //val totalPurse = playerGold + (playerSilver / 100.0)
-    val totalPurse = playerDragonCoin * DRAGON_COIN_VALUATION
-    println("Total purse: $totalPurse")
-    println("Purchasing item for $price")
-
-    if (totalPurse < price) {
-        println("Customer has not enough silver, gold neither enough dragoncoin to buy a delicious drink")
-        return
-    }
-    val remainingBalance = totalPurse - price
-    println("Remaining balance: ${"%.2f".format(remainingBalance)}")
-
-    val remainingGold = remainingBalance.toInt()
-    val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-    playerGold = remainingGold
-    playerSilver = remainingSilver
-    playerDragonCoin = (playerGold / DRAGON_COIN_VALUATION) + (playerSilver / DRAGON_COIN_VALUATION / 100)
-    displayBalance()
-}
-
-fun displayBalance() {
-    println("Player's purse balance: Gold: $playerGold , Silver: $playerSilver")
-    println("Dragoncoin balance: $playerDragonCoin")
 }
 
 fun nameIsLong(name: String) = name.length >= 20
@@ -130,7 +98,7 @@ private fun placeOrder(patronName: String, menuData: String) {
     println(message)
 
     for (i in 1..4) {
-        performPurchase(price.toDouble())
+        performPurchase(price.toDouble(), patronName)
     }
 
     val phrase = if (name == "Dragon's Breath") {
@@ -139,6 +107,11 @@ private fun placeOrder(patronName: String, menuData: String) {
         "$patronName exclaims: Thanks for the $name"
     }
     println(phrase)
+}
+
+fun performPurchase(price: Double, patronName: String) {
+    val totalPurse = patronGold.getValue(patronName)
+    patronGold[patronName] = totalPurse - price
 }
 
 private fun toDragonSpeak(phrase: String) =
