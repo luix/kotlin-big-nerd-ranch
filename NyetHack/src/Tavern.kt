@@ -155,13 +155,21 @@ fun printFormattedTavernMenu(menuList: List<String>) {
     println("*** Welcome to Taernyl's Folly ***")
     println()
 
-    var menuGroups = readGroupsFromMenuList(menuList)
+    val menuGroups = readGroupsFromMenuList(menuList)
+    val mutableMenuList = menuList.toMutableList()
 
-    menuList.forEach {
-        val (type, name, price) = it.split(',')
-        val dots = menuDotsPerName(name.length, price.length)
-        println("${formatGroupElement(type)}")
-        println("${capitalizeMenuItem(name)}$dots$price")
+    while (!menuGroups.isEmpty()) {
+        val group = menuGroups.first()
+        println("${formatGroupElement(group)}")
+        mutableMenuList.forEach {
+            val (type, name, price) = it.split(',')
+            if (type == group) {
+                val dots = menuDotsPerName(name.length, price.length)
+                println("${capitalizeMenuItem(name)}$dots$price")
+                //mutableMenuList.removeAt(it.in)
+            }
+        }
+        menuGroups.remove(group)
     }
 }
 
@@ -198,7 +206,7 @@ fun formatGroupElement(type: String, maxLength: Int = 33): String {
     return sb.toString()
 }
 
-fun readGroupsFromMenuList(menuList: List<String>): Set<String> {
+fun readGroupsFromMenuList(menuList: List<String>): MutableSet<String> {
     val groups = mutableSetOf<String>()
     menuList.forEach {
         var (group,_,_) = it.split(',')
