@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
         patronGold[it] = 6.0
     }
 
-    println(patronGold)
+    displayPatronBalances()
 
     var orderCount = 0
     while (orderCount < 10) {
@@ -50,7 +50,7 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    println(patronGold)
+    displayPatronBalances()
 }
 
 fun remainingPintsChallenge() {
@@ -112,6 +112,12 @@ private fun placeOrder(patronName: String, menuData: String) {
 fun performPurchase(price: Double, patronName: String) {
     val totalPurse = patronGold.getValue(patronName)
     patronGold[patronName] = totalPurse - price
+}
+
+private fun displayPatronBalances() {
+    patronGold.forEach { patron, balance ->
+        println("$patron, balance: ${"%.2f".format(balance)}")
+    }
 }
 
 private fun toDragonSpeak(phrase: String) =
