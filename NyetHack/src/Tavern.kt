@@ -53,7 +53,10 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    print(patronGold)
+    println(patronGold)
+    println(patronGold["Eli"])
+    println(patronGold["Mordoc"])
+    println(patronGold["Sophie"])
 }
 
 fun remainingPintsChallenge() {
