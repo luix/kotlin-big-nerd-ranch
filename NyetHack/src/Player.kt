@@ -7,7 +7,7 @@ class Player {
 
     var healthPoints = 89
     var isBlessed = true
-    var isInmortal = false
+    private var isInmortal = false
 
     fun castFireball(numFireballs: Int = 2) =
             println("A glass of Fireball springs into existence. (x$numFireballs)")
