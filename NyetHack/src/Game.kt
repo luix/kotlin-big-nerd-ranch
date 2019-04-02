@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    
+
     val player = Player()
     player.castFireball(5)
 
