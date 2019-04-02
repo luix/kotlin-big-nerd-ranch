@@ -6,6 +6,7 @@ fun main(args: Array<String>) {
     var isInmortal = false
 
     val player = Player()
+    player.castFireball(5)
 
     // Aura
     val auraColor = auraColor(isBlessed, healthPoints, isInmortal)
@@ -16,7 +17,6 @@ fun main(args: Array<String>) {
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
 
     printTestMessage()
-    castFireball(5)
 }
 
 private fun printTestMessage() {
@@ -36,11 +36,6 @@ private fun printPlayerStatus(auraColor: String,
             "(Blessed: ${if (isBlessed) "YES" else "NO"})")
     println("$name $healthStatus")
 }
-
-// Single expression function
-private fun castFireball(numFireballs: Int = 2) =
-        println("A glass of Fireball springs into existence. (x$numFireballs)")
-
 
 private fun auraColor_(isBlessed: Boolean,
                       healthPoints: Int,
