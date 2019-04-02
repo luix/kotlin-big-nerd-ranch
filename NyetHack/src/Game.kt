@@ -1,5 +1,4 @@
 fun main(args: Array<String>) {
-    val name = "Madrigal"
     var healthPoints = 100
 
     var isBlessed = true
