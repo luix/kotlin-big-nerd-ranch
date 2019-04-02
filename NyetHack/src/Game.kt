@@ -1,9 +1,5 @@
 fun main(args: Array<String>) {
-    var healthPoints = 100
-
-    var isBlessed = true
-    var isInmortal = false
-
+    
     val player = Player()
     player.castFireball(5)
 
