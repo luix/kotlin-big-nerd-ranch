@@ -1,7 +1,7 @@
 class Player {
     var name = "madrigal"
         get() = field.capitalize()
-        set(value) {
+        private set(value) {
             field = value.trim()
         }
 
