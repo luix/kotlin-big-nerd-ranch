@@ -1,3 +1,5 @@
+package com.bignerdranch.nyethack
+
 fun main(args: Array<String>) {
     var swordsJuggling: Int? = null
     val isJugglingProficient = (1..3).shuffled().last() == 3
