@@ -1,15 +1,18 @@
 package com.bignerdranch.nyethack
 
-class Player {
-    var name = "madrigal"
+class Player(_name: String,
+             _healthPoints: Int,
+             _isBlessed: Boolean,
+             _isImmortal: Boolean) {
+    var name = _name
         get() = field.capitalize()
         private set(value) {
             field = value.trim()
         }
 
-    var healthPoints = 89
-    var isBlessed = true
-    private var isInmortal = false
+    var healthPoints = _healthPoints
+    var isBlessed = _isBlessed
+    private var isInmortal = _isImmortal
 
 
     fun auraColor(): String {
