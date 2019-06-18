@@ -1,1 +1,1 @@
-class Student(var name: String)
+class Student(val name: String)
