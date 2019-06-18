@@ -10,6 +10,8 @@ class Player(_name: String,
             field = value.trim()
         }
 
+    val hometown: String
+
     init {
         require(healthPoints > 0, { "healthPoints must be greater than zero." })
         require(name.isNotBlank(), { "Payer must have a name." })
