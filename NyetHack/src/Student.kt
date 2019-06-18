@@ -1,1 +1,4 @@
-class Student(val name: String)
+class Student {
+    val name: String
+        get() = "Luix"
+}
