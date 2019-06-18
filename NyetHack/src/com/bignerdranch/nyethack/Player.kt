@@ -1,7 +1,7 @@
 package com.bignerdranch.nyethack
 
 class Player(_name: String,
-             var healthPoints: Int,
+             var healthPoints: Int = 100,
              val isBlessed: Boolean,
              private val isImmortal: Boolean) {
     var name = _name
@@ -11,14 +11,13 @@ class Player(_name: String,
         }
 
     constructor(name: String) : this (name,
-            healthPoints = 100,
             isBlessed = true,
             isImmortal = false) {
         if (name.toLowerCase() == "kar") healthPoints = 40
     }
 
     fun auraColor(): String {
-        val auraVisible = isBlessed && healthPoints > 50 || isInmortal
+        val auraVisible = isBlessed && healthPoints > 50 || isImmortal
         val auraColor = if (auraVisible) "GREEN" else "NONE"
         return auraColor
     }
