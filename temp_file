@@ -1,0 +1,161 @@
+pwd
+cd Developer/
+ls 
+cd android/
+ls -lta
+git clone ssh://git@stash.sdhq.local:7999/~lvivero/sd-android.git
+git clone http://lvivero@stash.sdhq.local/scm/~lvivero/sd-android.git
+git status
+git branch -va
+cd sd-android/
+git checkout search-enhacements 
+brew
+cd ..
+mkdir nanodegree
+cd nanodegree/
+mkdir CarND
+cd CarND/
+mkir tmp
+cd tm
+mdkir tmp
+mkdir tensorflow
+cd tensorflow/
+conda create -n tensorflow python=3.5
+cd 
+ cd Developer/
+ls
+git clone https://github.com/martin-gorner/tensorflow-mnist-tutorial
+source activate tensorflow
+python3 mnist_1.0_softmax.py
+cd tensorflow-mnist-tutorial/
+sudo pip3 install --upgrade matplotlib
+python
+brew install pip3
+brew install pip
+sudo pip install --upgrade matplotlib
+history 
+history | grep ssh
+ssh -i ~/Developer/microlands/keys/aws-ec2-lv-mini-cooper-classic.pem ec2-user@ec2-54-191-3-168.us-west-2.compute.amazonaws.com
+cd ~/Developer/microlands/keys/
+chmod 600 hector-elottery-key-pair.pem 
+chmod 600 aws-ec2-lv-mini-cooper-classic.pem 
+cd
+git clone https://github.com/udacity/CarND-Unscented-Kalman-Filter-Project.git
+cd CarND-Unscented-Kalman-Filter-Project/
+cd Developer/nanodegree/CarND/
+unzip EKF-Project.zip 
+sudo vi /Users/luix/.bash_profile
+cd Developer/nanodegree/CarND/denirkrut/Particle-Filter-Localization/
+./clean.sh 
+./build.sh 
+./run.sh 
+cd ../Proportional-Integral-Derivative-Controller/
+mkdir build
+cd build/
+cmake
+cmake ..
+make
+brew install openssl zlib libuv
+./install-mac.sh 
+more cmakepatch.txt 
+brew install --force openssl
+echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile
+sudo echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile
+echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> sudo ~/.bash_profile
+more ~/.bash_profile 
+sudo vi ~/.bash_profile 
+sudo ~/.bash_profile
+~/.bash_profile
+vim
+python2 turtles.py 
+clear
+mkdir Flying
+cd Flying/
+git clone https://github.com/udacity/FCND-Term1-Starter-Kit.git
+cd FCND-Term1-Starter-Kit/
+brew install
+brew install miniconda
+conda env create -f environment.yml 
+source activate fcnd
+conda info --envs
+ipython
+pip install git@github.com:udacity/udacidrone.git
+pip install --upgrade pip
+python -m pip install --user 
+python2 -m pip install --user 
+exit
+rm -f FCND-Term1-Starter-Kit/
+rm -fR FCND-Term1-Starter-Kit/
+conda env create -f environment.yml
+conda update -n base conda
+conda env remove -n fcnd
+more run.sh 
+more jupyter_notebook_config.py 
+more README.md 
+vi up_and_down.py
+more up_and_down.py 
+python up_and_down.py 
+pwd\
+history
+cd Downloads/
+bash Miniconda2-latest-MacOSX-x86_64.sh 
+sudo bash Miniconda3-latest-MacOSX-x86_64.sh 
+sudo bash Miniconda3-latest-MacOSX-x86_64.sh -u
+top
+diskutil list
+diskutil unmount /dev/disk3
+hdiutil convert -format UDRW -o /Users/luix/Downloads/ubuntu-18.04.1-desktop-amd64.dmg /Users/luix/Downloads/ubuntu-18.04.1-desktop-amd64.iso 
+sudo dd if=/Users/luix/Downloads/ubuntu-18.04.1-desktop-amd64.dmg of=/dev/rdisk3
+diskutil unmountDisk /dev/disk3
+ls -lta ubuntu-18.04.1-desktop-amd64.dmg 
+ps -fea | grep su
+curl http://releases.ubuntu.com/16.04/ubuntu-16.04.5-desktop-amd64.iso.torrent?_ga=2.247422978.740077006.1550770871-1431019843.1549939213
+open Etcher
+cd Applications/
+open Ethcer
+ls -lta E*
+ls -lta 
+cd /Volumes/Ubuntu\ Boot\ Loader/
+ls /lt
+sudo mkdir System mach kernel
+cd System/
+sudo mkdir -p Library/CoreServices
+cd Library/CoreServices/
+vi SystemVersion.plist
+cat SystemVersion.plist 
+sudo bless --device /dev/disk2s3 --setBoot
+csrutil 
+csrutil disable
+ vi main.cpp
+cat main.cpp 
+clang
+clang --help
+clang++ --help
+clang++ -lglfw -framework OpenGL main.cpp 
+cf
+ps -fea | grep java
+ps -fea | grep mong
+q
+cd bootiful/
+ssh -i ~/Developer/microlands/keys/aws-ec2-lv-mini-cooper-classic.pem ec2-user@ec2-34-212-53-231.us-west-2.compute.amazonaws.com
+quit
+ssh -i ~/Developer/microlands/keys/aws-ec2-lv-mini-cooper-classic.pem ec2-user@ec2-52-40-190-183.us-west-2.compute.amazonaws.com
+history | grep scp
+la
+cd IdeaProjects/
+cd springBlog/
+rm -fR .gradle/caches/
+ls -lta .gradle/
+cd IdeaProjects/springBlog/build/
+cd tmp/
+cd bootJar/
+cd ../../libs/
+brew update
+brew tap mongodb
+brew tap mongodb/brew
+brew install mongodb-community@4.0
+cat /usr/local/etc/mongod.conf 
+mongodb --config /usr/local/etc/mongod.conf 
+mongod --config /usr/local/etc/mongod.conf 
+cat /usr/local/var/log/mongodb/mongo.log 
+tail -f /usr/local/var/log/mongodb/mongo.log 
