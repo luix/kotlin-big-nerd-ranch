@@ -1,5 +1,7 @@
 package com.bignerdranch.nyethack
 
+import java.io.File
+
 class Player(_name: String,
              var healthPoints: Int = 100,
              val isBlessed: Boolean,
@@ -10,7 +12,7 @@ class Player(_name: String,
             field = value.trim()
         }
 
-    val hometown: String
+    val hometown = selectHometown()
 
     init {
         require(healthPoints > 0, { "healthPoints must be greater than zero." })
@@ -28,6 +30,12 @@ class Player(_name: String,
         val auraColor = if (auraVisible) "GREEN" else "NONE"
         return auraColor
     }
+
+    private fun selectHometown() = File("data/towns.txt")
+            .readText()
+            .split("\n")
+            .shuffled()
+            .first()
 
     fun formatHealthStatus() =
         when (healthPoints) {
