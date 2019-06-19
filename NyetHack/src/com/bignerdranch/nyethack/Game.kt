@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
     var currentRoom = Room("Foyer")
     println(currentRoom.description())
     println(currentRoom.load())
-    
+
     // Aura
     val auraColor = player.auraColor()
 
