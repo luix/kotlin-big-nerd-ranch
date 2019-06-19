@@ -5,6 +5,10 @@ fun main(args: Array<String>) {
     val player = Player("Madrigal")
     player.castFireball(5)
 
+    var currentRoom = Room("Foyer")
+    println(currentRoom.description())
+    println(currentRoom.load())
+    
     // Aura
     val auraColor = player.auraColor()
 
