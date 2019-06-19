@@ -10,5 +10,7 @@ open class Room(val name: String) {
 }
 
 class TownSquare : Room("Town Square") {
+    override val dangerLevel = super.dangerLevel - 3
+
     override fun load() = "The villagers rally and cheer as you enter!"
 }
