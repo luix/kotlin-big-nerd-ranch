@@ -15,6 +15,8 @@ fun main(args: Array<String>) {
     // Player status
     printPlayerStatus(player)
 
+    Game.play()
+
     // Aura
     player.auraColor()
 }
@@ -28,5 +30,11 @@ private fun printPlayerStatus(player: Player) {
 object Game {
     init {
         println("Welcome, adventurer.")
+    }
+
+    fun play() {
+        while (true) {
+            // Play NyetHack
+        }
     }
 }
