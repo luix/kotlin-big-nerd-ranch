@@ -24,3 +24,7 @@ private fun printPlayerStatus(player: Player) {
             "(Blessed: ${if (player.isBlessed) "YES" else "NO"})")
     println("${player.name} ${player.formatHealthStatus()}")
 }
+
+object Game {
+    
+}
