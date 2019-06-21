@@ -29,7 +29,7 @@ object Game {
             printPlayerStatus(player)
 
             print("> Enter your command: ")
-            println("Last command: ${readLine()}")
+            println(GameInput(readLine()).processCommand())
         }
     }
 
