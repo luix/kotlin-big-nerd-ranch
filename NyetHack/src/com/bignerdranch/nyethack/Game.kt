@@ -44,6 +44,10 @@ object Game {
         val command = input.split(" ")[0]
         val argument = input.split(" ").getOrElse(1, { "" })
 
+        fun processCommand() = when (command.toLowerCase()) {
+            else -> commandNotFound()
+        }
+
         private fun commandNotFound() = "I'm not quite sure what you're trying to do!"
     }
 }
