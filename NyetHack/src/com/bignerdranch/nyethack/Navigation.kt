@@ -1,6 +1,10 @@
 package com.bignerdranch.nyethack
 
-class Navigation {
+enum class Direction {
+    NORTH,
+    EAST,
+    SOUTH,
+    WEST
 }
 
 data class Coordinate(val x: Int, val y: Int) {
