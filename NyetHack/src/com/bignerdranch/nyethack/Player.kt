@@ -1,22 +1,42 @@
 package com.bignerdranch.nyethack
 
-class Player {
-    var name = "madrigal"
-        get() = field.capitalize()
+import java.io.File
+
+class Player(_name: String,
+             var healthPoints: Int = 100,
+             val isBlessed: Boolean,
+             private val isImmortal: Boolean) {
+    var name = _name
+        get() = "${field.capitalize()} of $hometown"
         private set(value) {
             field = value.trim()
         }
 
-    var healthPoints = 89
-    var isBlessed = true
-    private var isInmortal = false
+    val hometown by lazy { selectHometown() }
+    val currentPosition = Coordinate(0, 0)
 
+    init {
+        require(healthPoints > 0, { "healthPoints must be greater than zero." })
+        require(name.isNotBlank(), { "Payer must have a name." })
+    }
+
+    constructor(name: String) : this (name,
+            isBlessed = true,
+            isImmortal = false) {
+        if (name.toLowerCase() == "kar") healthPoints = 40
+    }
 
     fun auraColor(): String {
-        val auraVisible = isBlessed && healthPoints > 50 || isInmortal
+        val auraVisible = isBlessed && healthPoints > 50 || isImmortal
         val auraColor = if (auraVisible) "GREEN" else "NONE"
         return auraColor
     }
+
+    private fun selectHometown() = File("data/towns.txt")
+            .readText()
+            .split("\n")
+            .shuffled()
+            .first()
 
     fun formatHealthStatus() =
         when (healthPoints) {
