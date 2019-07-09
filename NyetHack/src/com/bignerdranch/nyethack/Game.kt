@@ -37,6 +37,14 @@ object Game {
                 "Invalid direction: $directionInput"
             }
 
+    private fun fight() = currentRoom.monster?.let {
+            while (player.healthPoints > 0 && it.healthPoints > 0 ) {
+                Thread.sleep(1000)
+            }
+
+            "Combat complete."
+        } ?: "There's nothing here to fight."
+
     init {
         println("Welcome, adventurer.")
         player.castFireball()
