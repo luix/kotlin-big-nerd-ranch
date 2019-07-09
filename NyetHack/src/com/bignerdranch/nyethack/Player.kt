@@ -7,14 +7,17 @@ class Player(_name: String,
              val isBlessed: Boolean,
              private val isImmortal: Boolean) : Fightable {
 
-    override val diceCount: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-
-    override val diceSides: Int
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    override val diceCount = 3
+    override val diceSides = 6
 
     override fun attack(opponent: Fightable): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val damageDealt = if (isBlessed) {
+            damageRoll * 2
+        } else {
+            damageRoll
+        }
+        opponent.healthPoints -= damageDealt
+        return damageDealt
     }
 
     var name = _name
