@@ -3,9 +3,20 @@ package com.bignerdranch.nyethack
 import java.io.File
 
 class Player(_name: String,
-             var healthPoints: Int = 100,
+             override var healthPoints: Int = 100,
              val isBlessed: Boolean,
-             private val isImmortal: Boolean) {
+             private val isImmortal: Boolean) : Fightable {
+
+    override val diceCount: Int
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
+    override val diceSides: Int
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
+    override fun attack(opponent: Fightable): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     var name = _name
         get() = "${field.capitalize()} of $hometown"
         private set(value) {
