@@ -1,5 +1,7 @@
 package com.bignerdranch.nyethack
 
+import java.lang.Exception
+
 fun main(args: Array<String>) {
     Game.play()
 }
@@ -18,6 +20,22 @@ object Game {
             listOf(currentRoom, Room("Tavern"), Room("Back Room")),
                     listOf(Room("Long Corridor"), Room("Generic Room"))
     )
+
+    private fun move(directionInput: String) =
+            try {
+                val direction = Direction.valueOf(directionInput.toUpperCase())
+                val newPosition = direction.updateCoordinate(player.currentPosition)
+                if (!newPosition.isInBounds) {
+                    throw IllegalStateException("$direction is out of bounds")
+                }
+
+                val newRoom = worldMap[newPosition.y][newPosition.x]
+                player.currentPosition = newPosition
+                currentRoom = newRoom
+                "OK, you move $direction to the ${newRoom.name}.\n${newRoom.load()}"
+            } catch (e: Exception) {
+                "Invalid direction: $directionInput"
+            }
 
     init {
         println("Welcome, adventurer.")
