@@ -24,3 +24,9 @@ abstract class Monster(val name: String,
         return damageDealt
     }
 }
+
+class Goblin(name: String = "Goblin",
+             description: String = "A nasty-looking goblin",
+             healthPoints: Int = 30) : Monster(name, description, healthPoints) {
+
+}
