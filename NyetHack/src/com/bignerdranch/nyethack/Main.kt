@@ -1,9 +1,9 @@
 package com.bignerdranch.nyethack
 
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+//import kotlinx.coroutines.CoroutineStart
+//import kotlinx.coroutines.GlobalScope
+//import kotlinx.coroutines.delay
+//import kotlinx.coroutines.launch
 
 fun main() {
     coroutineWorkers()
@@ -13,6 +13,8 @@ fun main() {
 
 
 fun playPingPong() {
+    TODO("Add kotlinx libraries in the path")
+/*
     val job1 = GlobalScope.launch(start = CoroutineStart.LAZY) {
         delay(200)
         println("Pong")
@@ -26,10 +28,13 @@ fun playPingPong() {
         delay(200)
     }
     Thread.sleep(1000)
+                       */
 }
 
 
 fun coroutineWorkers() {
+    TODO("Add kotlinx libraries in the path")
+/*
     (1..10000).forEach {
         GlobalScope.launch {
             val threadName = Thread.currentThread().name
@@ -40,4 +45,5 @@ fun coroutineWorkers() {
     Thread.sleep(1000)
     println("Awake again!")
     }
+                           */
 }
