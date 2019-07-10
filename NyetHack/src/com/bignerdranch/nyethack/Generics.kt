@@ -17,6 +17,7 @@ fun main() {
     val lootBoxOne: LootBox<Fedora> = LootBox(Fedora("a generic-looking fedora", 15))
     val lootBoxTwo: LootBox<Coin> = LootBox(Coin(15))
 
+    lootBoxOne.open = true
     lootBoxOne.fetch()?.run {
         println("You retreive $name from the box!")
     }
