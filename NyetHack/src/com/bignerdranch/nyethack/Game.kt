@@ -40,6 +40,7 @@ object Game {
 
     private fun fight() = currentRoom.monster?.let {
             while (player.healthPoints > 0 && it.healthPoints > 0 ) {
+                slay(it)
                 Thread.sleep(1000)
             }
 
