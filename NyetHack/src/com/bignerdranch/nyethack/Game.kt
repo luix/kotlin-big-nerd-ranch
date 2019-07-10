@@ -93,6 +93,7 @@ object Game {
         val argument = input.split(" ").getOrElse(1, { "" })
 
         fun processCommand() = when (command.toLowerCase()) {
+            "fight" -> fight()
             "move" -> move(argument)
             else -> commandNotFound()
         }
