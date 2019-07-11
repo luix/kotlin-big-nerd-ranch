@@ -4,6 +4,8 @@ class LootBox<T : Loot>(vararg item: T) {
     var open = false
     private var loot: Array<out T> = item
 
+    operator fun get(index: Int): T? = loot[index].takeIf { open }
+    
     fun fetch(item: Int): T? {
         return loot[item].takeIf { open }
     }
