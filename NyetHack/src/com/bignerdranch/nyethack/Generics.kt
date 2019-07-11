@@ -2,14 +2,14 @@ package com.bignerdranch.nyethack
 
 class LootBox<T : Loot>(vararg item: T) {
     var open = false
-    private var loot: T = item
+    private var loot: Array<out T> = item
 
-    fun fetch(): T? {
-        return loot.takeIf { open }
+    fun fetch(item: Int): T? {
+        return loot[item].takeIf { open }
     }
 
-    fun <R> fetch(lootModFunction: (T) -> R): R? {
-        return lootModFunction(loot).takeIf { open }
+    fun <R> fetch(item: Int, lootModFunction: (T) -> R): R? {
+        return lootModFunction(loot[item]).takeIf { open }
     }
 }
 
