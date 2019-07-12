@@ -7,6 +7,5 @@ fun main(args: Array<String>) {
     var lootBarrel: Barrel<Loot> = Barrel(Coin(15))
 
     lootBarrel = fedoraBarrel
-    lootBarrel.item = Coin(15)
-    val myFedora: Fedora = fedoraBarrel.item
+    val myFedora: Fedora = lootBarrel.item
 }
