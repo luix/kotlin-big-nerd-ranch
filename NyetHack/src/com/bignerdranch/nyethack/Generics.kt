@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
     val lootBoxTwo: LootBox<Coin> = LootBox(Coin(15))
 
     lootBoxOne.open = true
-    lootBoxOne.fetch()?.run {
+    lootBoxOne.fetch(5)?.run {
         println("You retrieve $name from the box!")
     }
 
