@@ -13,6 +13,5 @@ fun <T> T.easyPrint(): T {
 fun main(args: Array<String>) {
     "Madrigal has left the building".easyPrint().addEnthusiasm(2).easyPrint()
     24.easyPrint()
-
-    34.let {  }
+    "how many vowels?".numVowels.easyPrint()
 }
