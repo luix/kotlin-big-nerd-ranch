@@ -1,5 +1,6 @@
 package com.bignerdranch.nyethack
 
+import com.bignerdranch.nyethack.extensions.random
 import java.io.File
 
 const val TAVERN_NAME = "Taernyl's Folly"
