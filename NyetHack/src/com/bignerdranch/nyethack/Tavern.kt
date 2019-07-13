@@ -1,6 +1,6 @@
 package com.bignerdranch.nyethack
 
-import com.bignerdranch.nyethack.extensions.random
+import com.bignerdranch.nyethack.extensions.random as randomizer
 import java.io.File
 
 const val TAVERN_NAME = "Taernyl's Folly"
@@ -35,8 +35,8 @@ fun main(args: Array<String>) {
     runExample()
 
     (0..9).forEach {
-        val first = patronList.random()
-        val last = lastName.random()
+        val first = patronList.randomizer()
+        val last = lastName.randomizer()
         val name = "$first $last"
         uniquePatrons += name
     }
@@ -48,8 +48,8 @@ fun main(args: Array<String>) {
 
     var orderCount = 0
     while (orderCount < 10) {
-        val patron = uniquePatrons.random()
-        val menuData = menuList.random()
+        val patron = uniquePatrons.randomizer()
+        val menuData = menuList.randomizer()
         placeOrder(patron, menuData)
         orderCount++
     }
