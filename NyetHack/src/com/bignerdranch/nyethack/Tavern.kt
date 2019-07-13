@@ -36,8 +36,8 @@ fun main(args: Array<String>) {
     runExample()
 
     (0..9).forEach {
-        val first = patronList.shuffled().first()
-        val last = lastName.shuffled().first()
+        val first = patronList.random()
+        val last = lastName.random()
         val name = "$first $last"
         uniquePatrons += name
     }
@@ -49,8 +49,8 @@ fun main(args: Array<String>) {
 
     var orderCount = 0
     while (orderCount < 10) {
-        val patron = uniquePatrons.shuffled().first()
-        val menuData = menuList.shuffled().first()
+        val patron = uniquePatrons.random()
+        val menuData = menuList.random()
         placeOrder(patron, menuData)
         orderCount++
     }
