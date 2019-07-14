@@ -1,5 +1,7 @@
 package com.bignerdranch
 
+import com.bignerdranch.nyethack.isPrime
+
 
 fun main(args: Array<String>) {
 
@@ -17,7 +19,17 @@ fun reverseMapTest() {
     // {4.0=Luis, 2.0=Alberto, 3.0=Jesus}
 }
 
-//
+// example of a function using a sequence
+fun listOfFistThousandPrimeNumbers(): Sequence<Int> {
+    // using a list instead of a sequence, but 5000 initial numbers are not enough
+    val toList = (1..5000).toList().filter { it.isPrime() }.take(1000)
+    val oneThousandPrimes = generateSequence(3) {
+        it + 1
+    }.filter { it.isPrime() }.take(1000)
+    return oneThousandPrimes
+}
+
+// example of Combine category of functions
 fun accumulateNumbersMultipliedByThree() {
     val foldedValue = listOf(1, 2, 3, 4).fold(0) { accumulator, number ->
         println("Accumulator $accumulator")
