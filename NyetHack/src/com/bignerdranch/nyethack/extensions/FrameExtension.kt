@@ -11,8 +11,8 @@ fun frame(name: String, padding: Int, formatChar: String = "*"): String {
 
 
 fun main() {
-    println("Welcome, Madrigal".frame(5))
-    
+    //println("Welcome, Madrigal".frame(5))
+
    /*
     ******************************
     *     Welcome, Madrigal      *
