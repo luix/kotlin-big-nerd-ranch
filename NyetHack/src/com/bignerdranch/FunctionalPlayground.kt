@@ -2,14 +2,24 @@ package com.bignerdranch
 
 
 fun main(args: Array<String>) {
+    val employees = listOf("Denny", "Claudette", "Peter")
+    val shirtSize = listOf("large", "x-large", "medium")
+    val employeeShirtSizes = employees.zip(shirtSize).toMap()
+    println(employeeShirtSizes["Denny"])
+}
+
+// example of Filter category of functions
+fun filterNonPrimeNumbers() {
     val numbers = listOf(7, 4, 8, 4, 3, 22, 18, 11)
     val primes = numbers.filter { number ->
         (2 until number).map { number % it }
                 .none { it == 0 }
-        }
+    }
     println(primes)
+    // [7, 3, 11]
 }
 
+// example of Filter and Transform categories of functions
 fun filteringAndFlattening() {
     val itemsOfManyColors = listOf(listOf("red apple", "green apple", "blue apple"),
             listOf("red fish", "blue fish"), listOf("yellow banana", "teal banana"))
@@ -20,12 +30,13 @@ fun filteringAndFlattening() {
 }
 
 
+// example of Transforms category of functions
 fun flatteringTwoLists() {
     listOf(listOf(1, 2, 3), listOf(4, 5, 6)).flatMap { it }
     // [1, 2, 3, 4, 5, 6]
 }
 
-// Transforms category of functions
+// example of Transforms category of functions
 fun sameNumberOfItemsDifferentTypes() {
     val tenDollarWords = listOf("auspicious", "avuncular", "obviate")
     val tenDollarWordLenghts = tenDollarWords.map { it.length }
@@ -37,7 +48,7 @@ fun sameNumberOfItemsDifferentTypes() {
     // 3
 }
 
-// Transforms category of functions
+// example of Transforms category of functions
 fun aTailOfBabiesAnimals() {
     val animals = listOf("zebra", "giraffe", "elephant", "rat")
     val babies = animals
