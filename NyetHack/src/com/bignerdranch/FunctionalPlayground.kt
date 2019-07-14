@@ -2,10 +2,12 @@ package com.bignerdranch
 
 import com.bignerdranch.nyethack.easyPrint
 import com.bignerdranch.nyethack.isPrime
+import com.bignerdranch.nyethack.isPrimeOptimized
+import kotlin.system.measureNanoTime
 
 
 fun main(args: Array<String>) {
-    listOfFistThousandPrimeNumbers().toList().easyPrint()
+    measureIsPrimeOptimization()
 }
 
 // Challenge: Reversing the values in a map
@@ -21,15 +23,43 @@ fun reverseMapTest() {
 }
 
 // example of a function using a sequence
-fun listOfFistThousandPrimeNumbers(): Sequence<Int> {
+fun listOfFistThousandPrimeNumbers(optimize: Boolean): Sequence<Int> {
     // using a list instead of a sequence, but 5000 initial numbers are not enough
-    val toList = (1..5000).toList().filter { it.isPrime() }.take(1000)
+    //val toList = (1..5000).toList().filter { it.isPrime() }.take(1000)
     val oneThousandPrimes = generateSequence(1) {
         it + 1
     }.filter {
-        it.isPrime()
+        if(optimize) {
+            it.isPrimeOptimized()
+        } else {
+            it.isPrime()
+        }
     }.take(1000)
     return oneThousandPrimes
+}
+
+// measure usage of list vs sequence and use of isPrime() vs isPrimeOptimized()
+fun measureIsPrimeOptimization() {
+    val sequenceInNanosOptimized = measureNanoTime {
+        listOfFistThousandPrimeNumbers(true)//.toList().easyPrint()
+    }
+
+    val sequenceInNanos = measureNanoTime {
+        listOfFistThousandPrimeNumbers(false)//.toList().easyPrint()
+    }
+
+    val listInNanosOptimized = measureNanoTime {
+        val toList = (1..7919).toList().filter { it.isPrimeOptimized() }.take(1000)
+    }
+    val listInNanos = measureNanoTime {
+        val toList = (1..7919).toList().filter { it.isPrime() }.take(1000)
+    }
+
+
+    println("List(A) completed in ${"%,d".format(listInNanos)} ns")
+    println("List(B) completed in ${"%,d".format(listInNanosOptimized)} ns")
+    println("Sequence(A) completed in ${"%,d".format(sequenceInNanos)} ns")
+    println("Sequence(B) completed in ${"%,d".format(sequenceInNanosOptimized)} ns")
 }
 
 // example of Combine category of functions

@@ -15,7 +15,7 @@ fun <T> T.easyPrint(): T {
 infix fun String?.printWithDefault(default: String) = println(this ?: default)
 
 /**
- * eXtension to Int that determines whether a number is prime
+ * Extension to Int that determines whether a number is prime
  */
 fun Int.isPrime(): Boolean {
     (2 until this).map {
@@ -23,6 +23,25 @@ fun Int.isPrime(): Boolean {
     }
     return true
 }
+
+/**
+ * Optimizes eXtension to Int that determines whether a number is prime
+ */
+fun Int.isPrimeOptimized(): Boolean {
+    if (this < 4) return true           // [1, 2, 3] are prime numbers
+    if (this % 2 == 0) return false     // none other even numbers are prime except from 2, so eliminate them
+    val halfPlusOne = this.div(2) + 1
+    var result = true
+    (4 until halfPlusOne).map {
+        it
+    }.filter {
+        it % 2 == 1
+    }.map {
+        if (this % it == 0) return false
+    }
+    return true
+}
+
 
 fun main(args: Array<String>) {
     "Madrigal has left the building".easyPrint().addEnthusiasm(2).easyPrint()
