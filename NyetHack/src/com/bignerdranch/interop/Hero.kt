@@ -1,4 +1,5 @@
 package com.bignerdranch.interop
 
-class Hero {
+fun main(args: Array<String>) {
+    val adversary = Jhava()
 }
