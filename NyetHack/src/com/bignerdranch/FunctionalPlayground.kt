@@ -2,6 +2,17 @@ package com.bignerdranch
 
 
 fun main(args: Array<String>) {
+
+}
+
+
+fun flatteringTwoLists() {
+    listOf(listOf(1, 2, 3), listOf(4, 5, 6)).flatMap { it }
+    // [1, 2, 3, 4, 5, 6]
+}
+
+// Transforms category of functions
+fun sameNumberOfItemsDifferentTypes() {
     val tenDollarWords = listOf("auspicious", "avuncular", "obviate")
     val tenDollarWordLenghts = tenDollarWords.map { it.length }
     println(tenDollarWordLenghts)
@@ -11,7 +22,6 @@ fun main(args: Array<String>) {
     println(tenDollarWordLenghts.size)
     // 3
 }
-
 
 // Transforms category of functions
 fun aTailOfBabiesAnimals() {
