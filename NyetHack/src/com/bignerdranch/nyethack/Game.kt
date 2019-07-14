@@ -70,6 +70,12 @@ object Game {
     fun play() {
         while (true) {
             // Play NyetHack
+            
+            currentRoom.configurePitGoblin { goblin ->
+                goblin.healthPoints = dangerLevel * 3
+                goblin
+            }
+
             println(currentRoom.description())
             println(currentRoom.load())
 
