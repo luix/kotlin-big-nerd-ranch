@@ -2,6 +2,23 @@ package com.bignerdranch
 
 
 fun main(args: Array<String>) {
+}
+
+// Challenge: Reversing the values in a map
+fun <K, V> flipValues(map: Map<K, V>): Map<V, K> {
+    return mapOf<V, K>()
+}
+fun reverseMapTest() {
+    val gradesByStudent = mapOf("Luis" to 4.0, "Alberto" to 2.0, "Jesus" to 3.0)
+    // {Luis=4.0, Alberto=2.0, Jesus=3.0}
+
+    flipValues(gradesByStudent)
+    // {4.0=Luis, 2.0=Alberto, 3.0=Jesus}
+}
+
+
+// example of Combine category of functions
+fun combineTwoCollectionsFunctionalStyle() {
     val employees = listOf("Denny", "Claudette", "Peter")
     val shirtSize = listOf("large", "x-large", "medium")
     val employeeShirtSizes = employees.zip(shirtSize).toMap()
