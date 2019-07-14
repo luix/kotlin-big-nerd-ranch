@@ -5,5 +5,5 @@ fun main(args: Array<String>) {
     println(adversary.utterGreeting())
 
     val friendshipLevel = adversary.determineFriendshipLevel()
-    println(friendshipLevel?.toLowerCase())
+    println(friendshipLevel?.toLowerCase() ?: "It's complicated.")
 }
