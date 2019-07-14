@@ -7,18 +7,17 @@ import kotlin.system.measureNanoTime
 
 
 fun main(args: Array<String>) {
-    measureIsPrimeOptimization()
+    reverseMapTest()
 }
 
 // Challenge: Reversing the values in a map
-fun <K, V> flipValues(map: Map<K, V>): Map<V, K> {
-    return mapOf<V, K>()
-}
+fun <K, V> flipValues(map: Map<K, V>): Map<V, K> = map.values.zip(map.keys).toMap()
+
 fun reverseMapTest() {
     val gradesByStudent = mapOf("Luis" to 4.0, "Alberto" to 2.0, "Jesus" to 3.0)
     // {Luis=4.0, Alberto=2.0, Jesus=3.0}
 
-    flipValues(gradesByStudent)
+    flipValues(gradesByStudent).easyPrint()
     // {4.0=Luis, 2.0=Alberto, 3.0=Jesus}
 }
 
