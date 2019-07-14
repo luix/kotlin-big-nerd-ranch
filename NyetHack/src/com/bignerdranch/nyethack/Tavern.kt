@@ -34,12 +34,19 @@ fun main(args: Array<String>) {
 
     runExample()
 
+    val uniquePatrons: Set<String> = generateSequence {
+        val first = patronList.randomizer()
+        val last = lastName.randomizer()
+        "$first $last"
+    }.take(10).toSet()
+    /*
     (0..9).forEach {
         val first = patronList.randomizer()
         val last = lastName.randomizer()
         val name = "$first $last"
         uniquePatrons += name
     }
+     */
     uniquePatrons.forEach {
         patronGold[it] = 6.0
     }
