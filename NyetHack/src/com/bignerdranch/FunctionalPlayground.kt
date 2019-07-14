@@ -2,6 +2,7 @@ package com.bignerdranch
 
 
 fun main(args: Array<String>) {
+
 }
 
 // Challenge: Reversing the values in a map
@@ -16,6 +17,13 @@ fun reverseMapTest() {
     // {4.0=Luis, 2.0=Alberto, 3.0=Jesus}
 }
 
+//
+fun accumulateNumbersMultipliedByThree() {
+    val foldedValue = listOf(1, 2, 3, 4).fold(0) { accumulator, number ->
+        println("Accumulator $accumulator")
+        accumulator + number * 3
+    }
+}
 
 // example of Combine category of functions
 fun combineTwoCollectionsFunctionalStyle() {
