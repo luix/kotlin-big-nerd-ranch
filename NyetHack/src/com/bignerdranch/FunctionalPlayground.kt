@@ -1,10 +1,11 @@
 package com.bignerdranch
 
+import com.bignerdranch.nyethack.easyPrint
 import com.bignerdranch.nyethack.isPrime
 
 
 fun main(args: Array<String>) {
-
+    listOfFistThousandPrimeNumbers().toList().easyPrint()
 }
 
 // Challenge: Reversing the values in a map
@@ -23,9 +24,11 @@ fun reverseMapTest() {
 fun listOfFistThousandPrimeNumbers(): Sequence<Int> {
     // using a list instead of a sequence, but 5000 initial numbers are not enough
     val toList = (1..5000).toList().filter { it.isPrime() }.take(1000)
-    val oneThousandPrimes = generateSequence(3) {
+    val oneThousandPrimes = generateSequence(1) {
         it + 1
-    }.filter { it.isPrime() }.take(1000)
+    }.filter {
+        it.isPrime()
+    }.take(1000)
     return oneThousandPrimes
 }
 

@@ -18,8 +18,9 @@ infix fun String?.printWithDefault(default: String) = println(this ?: default)
  * eXtension to Int that determines whether a number is prime
  */
 fun Int.isPrime(): Boolean {
-
-
+    (2 until this).map {
+        if (this % it == 0) return false
+    }
     return true
 }
 
