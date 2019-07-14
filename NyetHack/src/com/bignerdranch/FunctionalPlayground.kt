@@ -9,5 +9,6 @@ fun main(args: Array<String>) {
             .map{ baby -> "$baby, with the cutest little tail ever!"}
     println(babies)
 
+    println(animals)
 
 }
