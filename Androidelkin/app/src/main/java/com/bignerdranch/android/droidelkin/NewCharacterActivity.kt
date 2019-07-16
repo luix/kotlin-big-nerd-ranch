@@ -18,6 +18,11 @@ class NewCharacterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_character)
+
+        characterData = savedInstanceState?.let {
+            it.getSerializable(CHARACTER_DATA_KEY) as CharacterGenerator.CharacterData
+        } ?: CharacterGenerator.generate()
+
         generateButton.setOnClickListener {
             characterData = CharacterGenerator.generate()
             displayCharacterData()
