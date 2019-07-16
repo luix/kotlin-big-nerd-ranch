@@ -4,9 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_new_character.*
 
+private const val CHARACTER_DATA_KEY = "CHARACTER_DATA_KEY"
+
 class NewCharacterActivity : AppCompatActivity() {
 
     private var characterData = CharacterGenerator.generate()
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable(CHARACTER_DATA_KEY, characterData)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +22,7 @@ class NewCharacterActivity : AppCompatActivity() {
             characterData = CharacterGenerator.generate()
             displayCharacterData()
         }
-        
+
         displayCharacterData()
     }
 
