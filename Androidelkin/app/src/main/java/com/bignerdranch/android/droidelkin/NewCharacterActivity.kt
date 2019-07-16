@@ -10,7 +10,7 @@ class NewCharacterActivity : AppCompatActivity() {
 
     private var characterData = CharacterGenerator.generate()
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putSerializable(CHARACTER_DATA_KEY, characterData)
     }

@@ -1,5 +1,7 @@
 package com.bignerdranch.android.droidelkin
 
+import java.io.Serializable
+
 
 private fun <T> List<T>.rand() = shuffled().first()
 
@@ -18,7 +20,7 @@ object CharacterGenerator {
                              val race: String,
                              val dex: String,
                              val wis: String,
-                             val str: String)
+                             val str: String) : Serializable
 
     private fun name() = "${firstName.rand()} ${lastName.rand()}"
 
