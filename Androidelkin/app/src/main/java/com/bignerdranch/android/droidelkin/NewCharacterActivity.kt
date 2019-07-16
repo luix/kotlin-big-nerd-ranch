@@ -6,6 +6,10 @@ import kotlinx.android.synthetic.main.activity_new_character.*
 
 private const val CHARACTER_DATA_KEY = "CHARACTER_DATA_KEY"
 
+private var Bundle.characterData
+    get() = getSerializable(CHARACTER_DATA_KEY) as CharacterGenerator.CharacterData
+    set(value) = putSerializable(CHARACTER_DATA_KEY, value)
+
 class NewCharacterActivity : AppCompatActivity() {
 
     private var characterData = CharacterGenerator.generate()
