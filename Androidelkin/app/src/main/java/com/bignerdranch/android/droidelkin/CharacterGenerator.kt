@@ -1,6 +1,5 @@
 package com.bignerdranch.android.droidelkin
 
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
 import java.io.Serializable
