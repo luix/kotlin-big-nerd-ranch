@@ -1,5 +1,8 @@
 package com.bignerdranch.android.droidelkin
 
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.experimental.async
 import java.io.Serializable
 import java.net.URL
 
@@ -49,7 +52,9 @@ object CharacterGenerator {
     }
 }
 
-fun fetchCharacterData(): CharacterGenerator.CharacterData {
-    val apiData = URL(CHARACTER_DATA_API).readText()
-    return CharacterGenerator.fromApiData(apiData)
+fun fetchCharacterData(): Deferred<CharacterGenerator.CharacterData> {
+    return async {
+        val apiData = URL(CHARACTER_DATA_API).readText()
+        CharacterGenerator.fromApiData(apiData)
+    }
 }
