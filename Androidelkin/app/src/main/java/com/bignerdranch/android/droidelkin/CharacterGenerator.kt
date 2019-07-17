@@ -1,7 +1,9 @@
 package com.bignerdranch.android.droidelkin
 
 import java.io.Serializable
+import java.net.URL
 
+private const val CHARACTER_DATA_API = "https://chargen-api.herokuapp.com"
 
 private fun <T> List<T>.rand() = shuffled().first()
 
@@ -45,4 +47,9 @@ object CharacterGenerator {
             apiData.split(",")
         return CharacterData(name, race, dex, wis, str)
     }
+}
+
+fun fetchCharacterData(): CharacterGenerator.CharacterData {
+    val apiData = URL(CHARACTER_DATA_API).readText()
+    return CharacterGenerator.fromApiData(apiData)
 }
