@@ -1,4 +1,4 @@
-fun main() {
+fun main_SimVillage() {
     runSimulation()
     runSimulation()
     runSimulation()
